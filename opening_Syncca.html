@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulling the Sycophancy Thread - opening</title>
+<style>
+:root{
+  --bg:#fcfbf9; --fg:#1c1b19; --muted:#6b6660; --rule:#e5e1da;
+  --link:#2f6f7e; --link-hover:#1d4b56; --accent:#8a6d3b; --quote:#575049; --th:#f3f0ea;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#1a1917; --fg:#e8e5df; --muted:#9a948b; --rule:#36332e;
+         --link:#79b4c0; --link-hover:#a7d2db; --accent:#c6a267; --quote:#b7b0a6; --th:#26241f; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:Charter,"Iowan Old Style",Georgia,Cambria,"Times New Roman",serif;
+  font-size:19px; line-height:1.65;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+.wrap{max-width:44rem; margin:0 auto; padding:2.2rem 1.25rem 4rem}
+h1{font-size:1.72rem; line-height:1.25; font-weight:700; margin:.4rem 0 .5rem; letter-spacing:-.01em}
+p{margin:0 0 1.05rem}
+.sub{color:var(--muted); font-style:italic; font-size:1.02rem; margin:0 0 1.4rem}
+.byline{color:var(--muted); font-size:.9rem; margin:-.1rem 0 1.6rem; letter-spacing:.01em}
+footer{max-width:44rem; margin:0 auto; padding:.4rem 1.25rem 3rem; color:var(--muted); font-size:.8rem}
+footer a{color:var(--muted)}
+footer p{margin:.35rem 0}
+a{color:var(--link); text-decoration:none; border-bottom:1px solid transparent}
+a:hover{color:var(--link-hover); border-bottom-color:currentColor}
+strong{font-weight:700}
+.more{margin-top:2.2rem; padding-top:1.2rem; border-top:1px solid var(--rule); font-size:1rem}
+.more a{border-bottom:1px solid currentColor}
+</style>
+</head>
+<body>
+<main class="wrap">
+<h1>Pulling the Sycophancy Thread</h1>
+<p class="sub">Inside a deployed relational-guidance system - and what its design does to sycophancy</p>
+<p class="byline">Dorit Cohen · 11 October 2026</p>
+
+<p>Sycophancy in AI is usually addressed head-on: prompt the model not to flatter, or train the impulse out. But what if there is another lever - designing a task in which uncritical agreement means failing at the job, so lower sycophancy follows as a by-product rather than a target?</p>
+
+<p>I explored this through Syncca, a deployed relational-guidance system built on Claude Sonnet 4.6. Its task is to move a user past the one-sided story they arrive with - to see their own part and hold the absent other as a distinct person. The approach draws on Murray Bowen's differentiation of self and the work of David Schnarch, translated into a form a model can act on.</p>
+
+<p>Two components do the work. Beneath the prompt sits a Lexicon: an ordered progression of applied relational concepts, gathered over two decades of practice, running from the coercive patterns people usually arrive caught in toward ways of relating that respect both self and other. A per-turn Gate reads whether the user is flooded or ready to reflect, and the system does not teach into distress: while the user is flooded it contains and stays curious, offering a concept only once the user can take it in. The prompt holds no instruction against sycophancy; where sycophancy stays low, it is a by-product of doing this task well.</p>
+
+<p>Two models blind-coded 49 production conversations. After an audit of the raters' evidence, sycophancy showed up in 3 of 49 (6.1%), against the 25% Anthropic reported for relationship guidance - a rough reference, not a controlled comparison. This does not prove the task caused the lower rate; it raises a hypothesis worth testing.</p>
+
+<p>The article's real subject, though, is what the failures could teach, and how far those lessons travel. They surfaced at three levels: the system, the model beneath it, and the instruments measuring both.</p>
+
+<p>Syncca's design could sometimes locate a failure - a Gate that misread when a user was ready, or a concept missing from the Lexicon - each raising a wider question: how to time a challenge, and what happens when a model answers competently from a foundation missing something essential, with nothing on the surface to show the gap. The sharpest case came from the instruments themselves: both grading models produced fluent, quoted, coherent analyses of conversations that do not exist, though the real transcripts sat in front of them. Only an audit matching each quote to its source exposed the fabrication - and correcting it raised the rate rather than lowering it. It is a caution for any research that leans on AI to code or assess evidence.</p>
+
+<p>Different as they were, each failure could pass for competent work until looked at closely. The deepest version, in the model's own behavior, is what the article names the premise trap: a model reasons, plans, and acts competently on a premise no one examined, entrenching the user in it without ever agreeing out loud - the smoothness that makes the work look competent is what hides the unexamined premise. The particulars are Syncca's; the shape is not. It can appear wherever a model builds on a contestable premise: a deal already favored, or a study built around the hypothesis it set out to confirm.</p>
+
+<p>Beyond one system's rate, the article proposes a distinction between two kinds of task: those whose competent execution carries a user past the premise they arrived with, and those whose competent execution entrenches it. It lays out the system, the failures, the limits of the evidence, and what would falsify the claims.</p>
+
+<p>I built Syncca, wrote the rubric, and ran the study - an interested party showing its work.</p>
+
+<p class="more"><a href="https://doritco7-syncca.github.io/pulling-the-sycophancy-thread/">Read the full article →</a></p>
+</main>
+<footer>
+<p>Dorit Cohen is a psychologist and the developer of Syncca (<a href="https://syncca.app">syncca.app</a>). Contact: doritco7 [at] gmail.com</p>
+<p>Cite as: Cohen, D. (2026). <em>Pulling the Sycophancy Thread</em>. Preprint.</p>
+<p>© 2026 Dorit Cohen. All rights reserved. · <a href="https://doritco7-syncca.github.io/Syncca-Appendix-Pulling-The-Sycophancy-Thread/">Methodology appendix</a></p>
+</footer>
+</body>
+</html>
