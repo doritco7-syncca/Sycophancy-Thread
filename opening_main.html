@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulling the Sycophancy Thread - opening</title>
+<style>
+:root{
+  --bg:#fcfbf9; --fg:#1c1b19; --muted:#6b6660; --rule:#e5e1da;
+  --link:#2f6f7e; --link-hover:#1d4b56; --accent:#8a6d3b; --quote:#575049; --th:#f3f0ea;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#1a1917; --fg:#e8e5df; --muted:#9a948b; --rule:#36332e;
+         --link:#79b4c0; --link-hover:#a7d2db; --accent:#c6a267; --quote:#b7b0a6; --th:#26241f; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:Charter,"Iowan Old Style",Georgia,Cambria,"Times New Roman",serif;
+  font-size:19px; line-height:1.65;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+.wrap{max-width:44rem; margin:0 auto; padding:2.2rem 1.25rem 4rem}
+h1{font-size:1.72rem; line-height:1.25; font-weight:700; margin:.4rem 0 1.1rem; letter-spacing:-.01em}
+h2{font-size:1.12rem; line-height:1.3; font-weight:700; margin:2.1rem 0 .8rem; letter-spacing:-.005em;
+   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+p{margin:0 0 1.05rem}
+.byline{color:var(--muted); font-size:.9rem; margin:-.2rem 0 1.4rem; letter-spacing:.01em}
+.lede{color:var(--muted); font-size:.92rem; line-height:1.55; font-style:italic;
+       border-left:2px solid var(--rule); padding-left:.9rem; margin:-.1rem 0 1.6rem}
+.lede em{font-style:italic}
+footer{max-width:44rem; margin:0 auto; padding:.4rem 1.25rem 3rem; color:var(--muted); font-size:.8rem}
+footer a{color:var(--muted)}
+footer p{margin:.35rem 0}
+a{color:var(--link); text-decoration:none; border-bottom:1px solid transparent}
+a:hover{color:var(--link-hover); border-bottom-color:currentColor}
+strong{font-weight:700}
+.more{margin-top:2.2rem; padding-top:1.2rem; border-top:1px solid var(--rule); font-size:1rem}
+.more a{border-bottom:1px solid currentColor}
+</style>
+</head>
+<body>
+<main class="wrap">
+<h1>Pulling the Sycophancy Thread</h1>
+<p class="byline">Dorit Cohen · 11 October 2026</p>
+
+<p class="lede"><em>What competent-looking output can hide: silent failures in a deployed system, then in the raters that judged it - and what a task-oriented design does to sycophancy</em></p>
+
+<p>Sycophancy - an AI's tendency to agree with or flatter users, prioritizing approval over truthfulness - is usually addressed by prompting or training. We explore task design as a complementary lever. If a model must help users move beyond their opening accounts, uncritical endorsement fails the task; lower sycophancy may follow as a by-product rather than a target.</p>
+
+<p>We examine Syncca, a deployed relational-guidance system built on Claude Sonnet 4.6. It leads users from one-sided blame to seeing their own part, and to recognizing the absent other as distinct. It contains no explicit anti-sycophancy instruction, but pairs a tiered Lexicon of relational concepts with a Gate estimating whether the user is flooded or ready to reflect. Two models blind-coded 49 production conversations against a frozen rubric. Following quote-auditing, sycophancy was identified in 3/49 (6.1%; Wilson 95% CI [2.1%, 16.5%]), versus Anthropic's reported 25% for relationship guidance - a rough reference, not a controlled comparison.</p>
+
+<p>Examining these few failures revealed silent errors at three levels: Syncca's design, model behavior, and evaluation. Both raters fabricated analyses of nonexistent conversations; only an audit matching quotes to sources exposed the fabrication and uncovered an additional sycophantic case the fabrication had hidden. Some failures allowed targeted repair; another exposed a model-level tendency no component addressed.</p>
+
+<p>The analysis identifies the premise trap: a model competently reasons, plans, and acts on a user's opening premise, thereby entrenching the user in an unexamined assumption without overt agreement. The findings do not establish causality; they raise a hypothesis - that how a task is designed shapes whether competent execution moves a user beyond an assumption or entrenches them in it. We state what would falsify each claim. The author is Syncca's founder.</p>
+
+<h2>What this started as</h2>
+
+<p>This started as a narrow measurement and became something else. Sycophancy showed up in only a few of the conversations examined, but the number was not the discovery. Each could instead be taken apart and read whole, which is where a small corpus earns its keep; and reading them closely revealed how hard these failures are to see.</p>
+
+<p>The few that failed did not look like failures. They were fluent, confident, pitched in the same caring tone as the conversations that worked. And the trouble did not stay inside the system under study. The same illusion of competence reached into the instruments measuring it: both models coding the conversations fabricated a whole batch of findings - detailed, quoted, internally coherent - about cases that never occurred. Correcting that fabrication raised the rate rather than lowering it.</p>
+
+<p>That turned a measurement into an investigation, and raised a broader question: what happens when a model quietly takes a user's premise as given, builds competently on it, and thereby entrenches the user in an assumption no one examined? That question, and the task-level response it suggests, are what the rest of this article works out.</p>
+
+<p>What follows traces the investigation: how the rate was measured and why it may be a lower bound; how the system's two components are meant to work; what the silent failures revealed about the system and its raters; and what would show this account to be wrong. I built the system, wrote the rubric, and ran the study - an interested party showing its work.</p>
+
+<p class="more"><a href="./">Continue to the full article →</a></p>
+</main>
+<footer>
+<p>Dorit Cohen is a psychologist and the developer of Syncca (<a href="https://syncca.app">syncca.app</a>). Contact: doritco7 [at] gmail.com</p>
+<p>Cite as: Cohen, D. (2026). <em>Pulling the Sycophancy Thread</em>. Preprint.</p>
+<p>© 2026 Dorit Cohen. All rights reserved. · <a href="https://doritco7-syncca.github.io/Syncca-Appendix-Pulling-The-Sycophancy-Thread/">Methodology appendix</a></p>
+</footer>
+</body>
+</html>
